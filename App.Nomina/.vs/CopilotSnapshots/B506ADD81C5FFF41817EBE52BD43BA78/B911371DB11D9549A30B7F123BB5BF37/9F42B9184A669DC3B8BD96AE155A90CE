@@ -1,0 +1,103 @@
+﻿@model App.Nomina.Data.Entities.Employee
+@{
+    ViewData["Title"] = "Nuevo Empleado";
+}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card shadow-sm fade-in">
+            <div class="card-body">
+                <h2 class="mb-4"><i class="bi bi-person-plus"></i> Nuevo Empleado</h2>
+                <form asp-action="Create" method="post" class="needs-validation" novalidate>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input asp-for="FirstName" class="form-control" placeholder="Nombre" required />
+                                <label asp-for="FirstName">Nombre</label>
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input asp-for="LastName" class="form-control" placeholder="Apellido" required />
+                                <label asp-for="LastName">Apellido</label>
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input asp-for="Ci" class="form-control" placeholder="Cédula" required />
+                                <label asp-for="Ci">Cédula</label>
+                                <span asp-validation-for="Ci" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input asp-for="Correo" class="form-control" placeholder="Correo" required type="email" />
+                                <label asp-for="Correo">Correo</label>
+                                <span asp-validation-for="Correo" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input asp-for="BirthDate" class="form-control" type="date" required />
+                                <label asp-for="BirthDate">Fecha de Nacimiento</label>
+                                <span asp-validation-for="BirthDate" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input asp-for="HireDate" class="form-control" type="date" required />
+                                <label asp-for="HireDate">Fecha de Ingreso</label>
+                                <span asp-validation-for="HireDate" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <select asp-for="Gender" class="form-select" required>
+                                    <option value="">Seleccione...</option>
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Femenino</option>
+                                    <option value="O">Otro</option>
+                                </select>
+                                <label asp-for="Gender">Género</label>
+                                <span asp-validation-for="Gender" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check form-switch mt-4">
+                                <input asp-for="Activo" class="form-check-input" type="checkbox" checked />
+                                <label asp-for="Activo" class="form-check-label">Activo</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end mt-4">
+                        <a asp-action="Index" class="btn btn-outline-secondary me-2">
+                            <i class="bi bi-arrow-left"></i> Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save"></i> Guardar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+    (function () {
+        'use strict'
+        var forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+    </script>
+}

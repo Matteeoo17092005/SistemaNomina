@@ -1,0 +1,61 @@
+@model IEnumerable<App.Nomina.Data.Entities.Department>
+@{
+    ViewData["Title"] = "Departamentos";
+    string q = ViewBag.Q as string ?? "";
+}
+<div class="container">
+    <h2 class="mb-4"><i class="bi bi-building"></i> Departamentos</h2>
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="get" class="row g-3 align-items-end">
+                <div class="col-md-6">
+                    <label class="form-label">Buscar</label>
+                    <input type="text" name="q" class="form-control" value="@q" placeholder="Código o nombre..." />
+                </div>
+                <div class="col-md-6 mt-2">
+                    <button type="submit" class="btn btn-primary me-2"><i class="bi bi-search"></i> Buscar</button>
+                    <a asp-action="Index" class="btn btn-outline-secondary"><i class="bi bi-x-circle"></i> Limpiar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var d in Model)
+                        {
+                            <tr>
+                                <td>@d.DeptNo</td>
+                                <td>@d.DeptName</td>
+                                <td>
+                                    @if (d.Activo)
+                                    {
+                                        <span class="badge bg-success">Activo</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger">Inactivo</span>
+                                    }
+                                </td>
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@d.DeptNo" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></a>
+                                    <a asp-action="Edit" asp-route-id="@d.DeptNo" class="btn btn-sm btn-outline-warning"><i class="bi bi-pencil"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

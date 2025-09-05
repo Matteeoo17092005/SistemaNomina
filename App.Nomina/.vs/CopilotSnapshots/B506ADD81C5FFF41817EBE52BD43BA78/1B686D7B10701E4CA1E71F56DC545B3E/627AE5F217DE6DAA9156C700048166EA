@@ -1,0 +1,11 @@
+﻿// /Data/Entities/LogAuditoriaSalarios.cs
+namespace App.Nomina.Data.Entities;
+public class LogAuditoriaSalarios
+{
+    public int Id { get; set; }
+    public string Usuario { get; set; } = default!;
+    public DateTime FechaActualizacion { get; set; }
+    public string DetalleCambio { get; set; } = default!;
+    public decimal Salario { get; set; }
+    public int EmpNo { get; set; }
+}

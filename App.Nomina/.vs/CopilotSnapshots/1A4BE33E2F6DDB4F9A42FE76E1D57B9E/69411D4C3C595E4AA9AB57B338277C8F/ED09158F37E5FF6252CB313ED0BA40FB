@@ -1,0 +1,445 @@
+﻿// /Controllers/ReportsController.cs
+using App.Nomina.Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ClosedXML.Excel;
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Infrastructure;
+
+namespace App.Nomina.Controllers;
+
+[Authorize]
+public class ReportsController : Controller
+{
+    private readonly NominaDbContext _db;
+    public ReportsController(NominaDbContext db) => _db = db;
+
+    // Nómina vigente por departamento a una fecha
+    public async Task<IActionResult> NominaVigente(string deptNo, DateTime? fecha)
+    {
+        var f = fecha ?? DateTime.Today;
+        var q = from e in _db.Employees
+                join de in _db.DeptEmp on e.EmpNo equals de.EmpNo
+                join d in _db.Departments on de.DeptNo equals d.DeptNo
+                join s in _db.Salaries on e.EmpNo equals s.EmpNo
+                where d.DeptNo == deptNo
+                  && de.FromDate <= f && (de.ToDate == null || de.ToDate >= f)
+                  && s.FromDate <= f && (s.ToDate == null || s.ToDate >= f)
+                select new { e.EmpNo, Nombre = e.FirstName + " " + e.LastName, d.DeptName, Salario = s.Amount };
+
+        var data = await q.OrderBy(x => x.Nombre).ToListAsync();
+        return View(data);
+    }
+
+    // Excel
+    public async Task<IActionResult> NominaVigenteExcel(string deptNo, DateTime? fecha)
+    {
+        var f = fecha ?? DateTime.Today;
+        var data = await (from e in _db.Employees
+                          join de in _db.DeptEmp on e.EmpNo equals de.EmpNo
+                          join d in _db.Departments on de.DeptNo equals d.DeptNo
+                          join s in _db.Salaries on e.EmpNo equals s.EmpNo
+                          where d.DeptNo == deptNo
+                            && de.FromDate <= f && (de.ToDate == null || de.ToDate >= f)
+                            && s.FromDate <= f && (s.ToDate == null || s.ToDate >= f)
+                          select new { e.EmpNo, Nombre = e.FirstName + " " + e.LastName, d.DeptName, Salario = s.Amount })
+                         .OrderBy(x => x.Nombre).ToListAsync();
+
+        using var wb = new XLWorkbook();
+        var ws = wb.AddWorksheet("Nomina");
+        ws.Cell(1, 1).Value = "EmpNo";
+        ws.Cell(1, 2).Value = "Nombre";
+        ws.Cell(1, 3).Value = "Departamento";
+        ws.Cell(1, 4).Value = "Salario";
+        ws.Cell(2, 1).InsertData(data);
+        using var ms = new MemoryStream();
+        wb.SaveAs(ms);
+        return File(ms.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "NominaVigente.xlsx");
+    }
+
+    // PDF simple con QuestPDF
+    public async Task<IActionResult> NominaVigentePdf(string deptNo, DateTime? fecha)
+    {
+        var f = fecha ?? DateTime.Today;
+        var data = await (from e in _db.Employees
+                          join de in _db.DeptEmp on e.EmpNo equals de.EmpNo
+                          join d in _db.Departments on de.DeptNo equals d.DeptNo
+                          join s in _db.Salaries on e.EmpNo equals s.EmpNo
+                          where d.DeptNo == deptNo
+                            && de.FromDate <= f && (de.ToDate == null || de.ToDate >= f)
+                            && s.FromDate <= f && (s.ToDate == null || s.ToDate >= f)
+                          select new { e.EmpNo, Nombre = e.FirstName + " " + e.LastName, Dept = d.DeptName, Salario = s.Amount })
+                         .OrderBy(x => x.Nombre).ToListAsync();
+
+        var pdf = Document.Create(container =>
+        {
+            container.Page(page =>
+            {
+                page.Margin(20);
+                page.Header().Text($"Nómina vigente - {deptNo} - {f:yyyy-MM-dd}").SemiBold().FontSize(16);
+                page.Content().Table(table =>
+                {
+                    table.ColumnsDefinition(c =>
+                    {
+                        c.RelativeColumn(1);
+                        c.RelativeColumn(3);
+                        c.RelativeColumn(3);
+                        c.RelativeColumn(2);
+                    });
+                    table.Header(h =>
+                    {
+                        h.Cell().Text("EmpNo");
+                        h.Cell().Text("Nombre");
+                        h.Cell().Text("Departamento");
+                        h.Cell().Text("Salario");
+                    });
+                    foreach (var row in data)
+                    {
+                        table.Cell().Text(row.EmpNo.ToString());
+                        table.Cell().Text(row.Nombre);
+                        table.Cell().Text(row.Dept);
+                        table.Cell().Text(row.Salario.ToString("C"));
+                    }
+                });
+            });
+        }).GeneratePdf();
+
+        return File(pdf, "application/pdf", "NominaVigente.pdf");
+    }
+
+    // Cambios salariales en rango de fechas
+    public async Task<IActionResult> CambiosSalariales(DateTime? desde, DateTime? hasta, string? q, int? empNo, string? deptNo)
+    {
+        var query = _db.LogAuditoriaSalarios
+            .Join(_db.Employees, l => l.EmpNo, e => e.EmpNo, (l, e) => new { l, e })
+            .Join(_db.DeptEmp, le => le.e.EmpNo, de => de.EmpNo, (le, de) => new { le.l, le.e, de })
+            .Join(_db.Departments, led => led.de.DeptNo, d => d.DeptNo, (led, d) => new { led.l, led.e, led.de, d });
+
+        if (desde.HasValue)
+            query = query.Where(x => x.l.FechaActualizacion >= desde.Value);
+        if (hasta.HasValue)
+            query = query.Where(x => x.l.FechaActualizacion <= hasta.Value);
+        if (!string.IsNullOrWhiteSpace(q))
+            query = query.Where(x => x.e.FirstName.Contains(q) || x.e.LastName.Contains(q) || x.l.Usuario.Contains(q) || x.l.DetalleCambio.Contains(q));
+        if (empNo.HasValue)
+            query = query.Where(x => x.e.EmpNo == empNo.Value);
+        if (!string.IsNullOrWhiteSpace(deptNo))
+            query = query.Where(x => x.d.DeptNo == deptNo);
+
+        var data = await query.Select(x => new {
+            x.l.Id,
+            x.l.Usuario,
+            x.l.FechaActualizacion,
+            x.l.DetalleCambio,
+            x.l.Salario,
+            x.e.EmpNo,
+            Nombre = x.e.FirstName + " " + x.e.LastName,
+            Departamento = x.d.DeptName
+        }).OrderByDescending(x => x.FechaActualizacion).ToListAsync();
+        ViewBag.Desde = desde; ViewBag.Hasta = hasta; ViewBag.Q = q; ViewBag.EmpNo = empNo; ViewBag.DeptNo = deptNo;
+        return View(data);
+    }
+
+    private async Task<List<dynamic>> GetCambiosSalarialesData(DateTime? desde, DateTime? hasta, string? q, int? empNo, string? deptNo)
+    {
+        var query = _db.LogAuditoriaSalarios
+            .Join(_db.Employees, l => l.EmpNo, e => e.EmpNo, (l, e) => new { l, e })
+            .Join(_db.DeptEmp, le => le.e.EmpNo, de => de.EmpNo, (le, de) => new { le.l, le.e, de })
+            .Join(_db.Departments, led => led.de.DeptNo, d => d.DeptNo, (led, d) => new { led.l, led.e, led.de, d });
+
+        if (desde.HasValue)
+            query = query.Where(x => x.l.FechaActualizacion >= desde.Value);
+        if (hasta.HasValue)
+            query = query.Where(x => x.l.FechaActualizacion <= hasta.Value);
+        if (!string.IsNullOrWhiteSpace(q))
+            query = query.Where(x => x.e.FirstName.Contains(q) || x.e.LastName.Contains(q) || x.l.Usuario.Contains(q) || x.l.DetalleCambio.Contains(q));
+        if (empNo.HasValue)
+            query = query.Where(x => x.e.EmpNo == empNo.Value);
+        if (!string.IsNullOrWhiteSpace(deptNo))
+            query = query.Where(x => x.d.DeptNo == deptNo);
+
+        return await query.Select(x => new {
+            x.l.Id,
+            x.l.Usuario,
+            x.l.FechaActualizacion,
+            x.l.DetalleCambio,
+            x.l.Salario,
+            x.e.EmpNo,
+            Nombre = x.e.FirstName + " " + x.e.LastName,
+            Departamento = x.d.DeptName
+        }).OrderByDescending(x => x.FechaActualizacion).ToListAsync();
+    }
+
+    public async Task<IActionResult> CambiosSalarialesExcel(DateTime? desde, DateTime? hasta, string? q, int? empNo, string? deptNo)
+    {
+        var data = await GetCambiosSalarialesData(desde, hasta, q, empNo, deptNo);
+        using var wb = new XLWorkbook();
+        var ws = wb.AddWorksheet("Cambios");
+        ws.Cell(1, 1).Value = "ID";
+        ws.Cell(1, 2).Value = "Empleado";
+        ws.Cell(1, 3).Value = "Departamento";
+        ws.Cell(1, 4).Value = "Usuario";
+        ws.Cell(1, 5).Value = "Fecha";
+        ws.Cell(1, 6).Value = "Detalle";
+        ws.Cell(1, 7).Value = "Salario";
+        ws.Cell(2, 1).InsertData(data);
+        using var ms = new MemoryStream();
+        wb.SaveAs(ms);
+        return File(ms.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "CambiosSalariales.xlsx");
+    }
+
+    public async Task<IActionResult> CambiosSalarialesPdf(DateTime? desde, DateTime? hasta, string? q, int? empNo, string? deptNo)
+    {
+        var data = await GetCambiosSalarialesData(desde, hasta, q, empNo, deptNo);
+        var pdf = Document.Create(container =>
+        {
+            container.Page(page =>
+            {
+                page.Margin(20);
+                page.Header().Text($"Cambios Salariales - {desde:d} a {hasta:d}").SemiBold().FontSize(16);
+                page.Content().Table(table =>
+                {
+                    table.ColumnsDefinition(c =>
+                    {
+                        c.RelativeColumn(1);  // ID
+                        c.RelativeColumn(3);  // Empleado
+                        c.RelativeColumn(2);  // Departamento
+                        c.RelativeColumn(2);  // Usuario
+                        c.RelativeColumn(2);  // Fecha
+                        c.RelativeColumn(3);  // Detalle
+                        c.RelativeColumn(2);  // Salario
+                    });
+                    table.Header(h =>
+                    {
+                        h.Cell().Text("ID");
+                        h.Cell().Text("Empleado");
+                        h.Cell().Text("Departamento");
+                        h.Cell().Text("Usuario");
+                        h.Cell().Text("Fecha");
+                        h.Cell().Text("Detalle");
+                        h.Cell().Text("Salario");
+                    });
+                    foreach (var row in data)
+                    {
+                        table.Cell().Text(row.Id.ToString());
+                        table.Cell().Text(row.Nombre);
+                        table.Cell().Text(row.Departamento);
+                        table.Cell().Text(row.Usuario);
+                        table.Cell().Text(row.FechaActualizacion.ToString("g"));
+                        table.Cell().Text(row.DetalleCambio);
+                        table.Cell().Text(row.Salario.ToString("C"));
+                    }
+                });
+            });
+        }).GeneratePdf();
+        return File(pdf, "application/pdf", "CambiosSalariales.pdf");
+    }
+
+    // Estructura organizacional: dept -> manager -> empleados
+    public async Task<IActionResult> EstructuraOrganizacional(string? deptNo, string? q)
+    {
+        var query = from d in _db.Departments
+                    join dm in _db.DeptManagers on d.DeptNo equals dm.DeptNo
+                    join m in _db.Employees on dm.EmpNo equals m.EmpNo
+                    select new
+                    {
+                        d.DeptNo,
+                        d.DeptName,
+                        Manager = m.FirstName + " " + m.LastName,
+                        ManagerNo = m.EmpNo,
+                        Empleados = (from de in _db.DeptEmp
+                                     join e in _db.Employees on de.EmpNo equals e.EmpNo
+                                     where de.DeptNo == d.DeptNo && (de.ToDate == null || de.ToDate >= DateTime.Today)
+                                     select new { e.EmpNo, Nombre = e.FirstName + " " + e.LastName }).ToList()
+                    };
+        if (!string.IsNullOrWhiteSpace(deptNo))
+            query = query.Where(x => x.DeptNo == deptNo);
+        if (!string.IsNullOrWhiteSpace(q))
+            query = query.Where(x => x.Manager.Contains(q) || x.Empleados.Any(e => e.Nombre.Contains(q)));
+        var data = await query.ToListAsync();
+        ViewBag.DeptNo = deptNo; ViewBag.Q = q;
+        return View(data);
+    }
+
+    public async Task<IActionResult> EstructuraOrganizacionalExcel(string? deptNo, string? q)
+    {
+        var data = await EstructuraOrganizacionalData(deptNo, q);
+        using var wb = new XLWorkbook();
+        var ws = wb.AddWorksheet("Estructura");
+        ws.Cell(1, 1).Value = "Departamento";
+        ws.Cell(1, 2).Value = "Gerente";
+        ws.Cell(1, 3).Value = "Empleados";
+        int row = 2;
+        foreach (var x in data)
+        {
+            ws.Cell(row, 1).Value = x.DeptName;
+            ws.Cell(row, 2).Value = x.Manager;
+            ws.Cell(row, 3).Value = string.Join(", ", x.Empleados.Select(e => e.Nombre));
+            row++;
+        }
+        using var ms = new MemoryStream();
+        wb.SaveAs(ms);
+        return File(ms.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "EstructuraOrganizacional.xlsx");
+    }
+
+    public async Task<IActionResult> EstructuraOrganizacionalPdf(string? deptNo, string? q)
+    {
+        var data = await EstructuraOrganizacionalData(deptNo, q);
+        var pdf = Document.Create(container =>
+        {
+            container.Page(page =>
+            {
+                page.Margin(20);
+                page.Header().Text("Estructura Organizacional").SemiBold().FontSize(16);
+                page.Content().Table(table =>
+                {
+                    table.ColumnsDefinition(c =>
+                    {
+                        c.RelativeColumn(3); // Departamento
+                        c.RelativeColumn(3); // Gerente
+                        c.RelativeColumn(6); // Empleados
+                    });
+                    table.Header(h =>
+                    {
+                        h.Cell().Text("Departamento");
+                        h.Cell().Text("Gerente");
+                        h.Cell().Text("Empleados");
+                    });
+                    foreach (var x in data)
+                    {
+                        table.Cell().Text(x.DeptName);
+                        table.Cell().Text(x.Manager);
+                        table.Cell().Text(string.Join(", ", x.Empleados.Select(e => e.Nombre)));
+                    }
+                });
+            });
+        }).GeneratePdf();
+        return File(pdf, "application/pdf", "EstructuraOrganizacional.pdf");
+    }
+
+    private async Task<List<dynamic>> EstructuraOrganizacionalData(string? deptNo, string? q)
+    {
+        var query = from d in _db.Departments
+                    join dm in _db.DeptManagers on d.DeptNo equals dm.DeptNo
+                    join m in _db.Employees on dm.EmpNo equals m.EmpNo
+                    select new
+                    {
+                        d.DeptNo,
+                        d.DeptName,
+                        Manager = m.FirstName + " " + m.LastName,
+                        ManagerNo = m.EmpNo,
+                        Empleados = (from de in _db.DeptEmp
+                                     join e in _db.Employees on de.EmpNo equals e.EmpNo
+                                     where de.DeptNo == d.DeptNo && (de.ToDate == null || de.ToDate >= DateTime.Today)
+                                     select new { e.EmpNo, Nombre = e.FirstName + " " + e.LastName }).ToList()
+                    };
+        if (!string.IsNullOrWhiteSpace(deptNo))
+            query = query.Where(x => x.DeptNo == deptNo);
+        if (!string.IsNullOrWhiteSpace(q))
+            query = query.Where(x => x.Manager.Contains(q) || x.Empleados.Any(e => e.Nombre.Contains(q)));
+        return await query.ToListAsync();
+    }
+
+    // Gerentes por departamento
+    public async Task<IActionResult> GerentesDepartamento(string? deptNo, string? gerente, DateTime? desde, DateTime? hasta)
+    {
+        var query = _db.DeptManagers.Include(dm => dm.Employee).Include(dm => dm.Department).AsQueryable();
+        if (!string.IsNullOrWhiteSpace(deptNo))
+            query = query.Where(dm => dm.DeptNo.Contains(deptNo) || dm.Department.DeptName.Contains(deptNo));
+        if (!string.IsNullOrWhiteSpace(gerente))
+            query = query.Where(dm => dm.Employee.FirstName.Contains(gerente) || dm.Employee.LastName.Contains(gerente));
+        if (desde.HasValue)
+            query = query.Where(dm => dm.FromDate >= desde.Value);
+        if (hasta.HasValue)
+            query = query.Where(dm => dm.ToDate == null || dm.ToDate <= hasta.Value);
+        var data = await query.OrderByDescending(dm => dm.FromDate).ToListAsync();
+        ViewBag.DeptNo = deptNo;
+        ViewBag.Gerente = gerente;
+        ViewBag.Desde = desde;
+        ViewBag.Hasta = hasta;
+        return View(data);
+    }
+
+    public async Task<IActionResult> GerentesDepartamentoExcel(string? deptNo, string? gerente, DateTime? desde, DateTime? hasta)
+    {
+        var query = _db.DeptManagers.Include(dm => dm.Employee).Include(dm => dm.Department).AsQueryable();
+        if (!string.IsNullOrWhiteSpace(deptNo))
+            query = query.Where(dm => dm.DeptNo.Contains(deptNo) || dm.Department.DeptName.Contains(deptNo));
+        if (!string.IsNullOrWhiteSpace(gerente))
+            query = query.Where(dm => dm.Employee.FirstName.Contains(gerente) || dm.Employee.LastName.Contains(gerente));
+        if (desde.HasValue)
+            query = query.Where(dm => dm.FromDate >= desde.Value);
+        if (hasta.HasValue)
+            query = query.Where(dm => dm.ToDate == null || dm.ToDate <= hasta.Value);
+        var data = await query.OrderByDescending(dm => dm.FromDate).ToListAsync();
+
+        using var wb = new XLWorkbook();
+        var ws = wb.AddWorksheet("Gerentes");
+        ws.Cell(1, 1).Value = "Departamento";
+        ws.Cell(1, 2).Value = "Gerente";
+        ws.Cell(1, 3).Value = "Desde";
+        ws.Cell(1, 4).Value = "Hasta";
+        int row = 2;
+        foreach (var x in data)
+        {
+            ws.Cell(row, 1).Value = x.DeptNo;
+            ws.Cell(row, 2).Value = x.Employee.FirstName + " " + x.Employee.LastName;
+            ws.Cell(row, 3).Value = x.FromDate?.ToString("yyyy-MM-dd");
+            ws.Cell(row, 4).Value = x.ToDate?.ToString("yyyy-MM-dd");
+            row++;
+        }
+        using var ms = new MemoryStream();
+        wb.SaveAs(ms);
+        return File(ms.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "GerentesDepartamento.xlsx");
+    }
+
+    public async Task<IActionResult> GerentesDepartamentoPdf(string? deptNo, string? gerente, DateTime? desde, DateTime? hasta)
+    {
+        var query = _db.DeptManagers.Include(dm => dm.Employee).Include(dm => dm.Department).AsQueryable();
+        if (!string.IsNullOrWhiteSpace(deptNo))
+            query = query.Where(dm => dm.DeptNo.Contains(deptNo) || dm.Department.DeptName.Contains(deptNo));
+        if (!string.IsNullOrWhiteSpace(gerente))
+            query = query.Where(dm => dm.Employee.FirstName.Contains(gerente) || dm.Employee.LastName.Contains(gerente));
+        if (desde.HasValue)
+            query = query.Where(dm => dm.FromDate >= desde.Value);
+        if (hasta.HasValue)
+            query = query.Where(dm => dm.ToDate == null || dm.ToDate <= hasta.Value);
+        var data = await query.OrderByDescending(dm => dm.FromDate).ToListAsync();
+
+        var pdf = Document.Create(container =>
+        {
+            container.Page(page =>
+            {
+                page.Margin(20);
+                page.Header().Text("Gerentes por Departamento").SemiBold().FontSize(16);
+                page.Content().Table(table =>
+                {
+                    table.ColumnsDefinition(c =>
+                    {
+                        c.RelativeColumn(3); // Departamento
+                        c.RelativeColumn(4); // Gerente
+                        c.RelativeColumn(3); // Desde
+                        c.RelativeColumn(3); // Hasta
+                    });
+                    table.Header(h =>
+                    {
+                        h.Cell().Text("Departamento");
+                        h.Cell().Text("Gerente");
+                        h.Cell().Text("Desde");
+                        h.Cell().Text("Hasta");
+                    });
+                    foreach (var x in data)
+                    {
+                        table.Cell().Text(x.DeptNo);
+                        table.Cell().Text(x.Employee.FirstName + " " + x.Employee.LastName);
+                        table.Cell().Text(x.FromDate?.ToString("yyyy-MM-dd"));
+                        table.Cell().Text(x.ToDate?.ToString("yyyy-MM-dd"));
+                    }
+                });
+            });
+        }).GeneratePdf();
+        return File(pdf, "application/pdf", "GerentesDepartamento.pdf");
+    }
+}

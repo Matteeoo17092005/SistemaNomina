@@ -1,0 +1,11 @@
+﻿// /Data/Entities/Title.cs
+namespace App.Nomina.Data.Entities;
+public class Title
+{
+    public int EmpNo { get; set; }
+    public string TitleName { get; set; } = default!;
+    public DateTime FromDate { get; set; }
+    public DateTime? ToDate { get; set; }
+
+    public Employee Employee { get; set; } = default!;
+}

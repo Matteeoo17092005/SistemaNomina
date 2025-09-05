@@ -1,0 +1,11 @@
+// /Domain/DateRange.cs
+namespace App.Nomina.Domain;
+public static class DateRange
+{
+    public static bool Overlaps(DateTime from1, DateTime? to1, DateTime from2, DateTime? to2)
+    {
+        var end1 = to1 ?? DateTime.MaxValue;
+        var end2 = to2 ?? DateTime.MaxValue;
+        return from1 <= end2 && from2 <= end1;
+    }
+}

@@ -1,0 +1,37 @@
+﻿using App.Nomina.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.EntityFrameworkCore;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllersWithViews();
+
+// EF Core
+builder.Services.AddDbContext<NominaDbContext>(opt =>
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Auth por Cookies (simple)
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(opt =>
+    {
+        opt.LoginPath = "/Auth/Login";
+        opt.AccessDeniedPath = "/Auth/Denied";
+    });
+
+builder.Services.AddHttpContextAccessor();
+
+// Servicios de dominio
+builder.Services.AddScoped<ISalaryService, SalaryService>();
+builder.Services.AddScoped<IDeptEmpService, DeptEmpService>();
+builder.Services.AddScoped<IDeptManagerService, DeptManagerService>();
+builder.Services.AddScoped<IUserCrypto, BcryptCrypto>();
+
+var app = builder.Build();
+
+app.UseStaticFiles();
+app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapDefaultControllerRoute();
+app.Run();

@@ -1,0 +1,32 @@
+﻿// /Controllers/SalariesController.cs
+using App.Nomina.Domain;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+namespace App.Nomina.Controllers;
+
+[Authorize(Roles = "Administrador,RRHH")]
+public class SalariesController : Controller
+{
+    private readonly ISalaryService _salaryService;
+    public SalariesController(ISalaryService salaryService) => _salaryService = salaryService;
+
+    [HttpGet]
+    public IActionResult Create(int empNo) => View(model: empNo);
+
+    [HttpPost]
+    public async Task<IActionResult> Create(int empNo, decimal amount, DateTime fromDate, DateTime? to_date)
+    {
+        var usuario = User.Identity?.Name ?? "sistema";
+        try
+        {
+            await _salaryService.AddOrChangeSalaryAsync(empNo, amount, fromDate, usuario, to_date);
+            return RedirectToAction("Details", "Employees", new { id = empNo });
+        }
+        catch (Exception ex)
+        {
+            ModelState.AddModelError("", ex.Message);
+            return View(empNo);
+        }
+    }
+}

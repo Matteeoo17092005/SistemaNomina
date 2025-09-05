@@ -1,0 +1,138 @@
+﻿@model IEnumerable<App.Nomina.Data.Entities.Employee>
+@{
+    ViewData["Title"] = "Empleados";
+    int total = (int)ViewBag.Total;
+    int page = (int)ViewBag.Page;
+    int pageSize = (int)ViewBag.PageSize;
+    string q = (string)ViewBag.Q ?? "";
+    int totalPages = (int)Math.Ceiling(total / (double)pageSize);
+}
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2><i class="bi bi-people"></i> Empleados</h2>
+        @if (User.IsInRole("Administrador") || User.IsInRole("RRHH"))
+        {
+            <a href="/Employees/Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Nuevo Empleado
+            </a>
+        }
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="get" class="row g-3">
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-search"></i></span>
+                        <input type="text" class="form-control" name="q" value="@q" 
+                               placeholder="Buscar por nombre, CI o correo...">
+                        <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+                        @if (!string.IsNullOrEmpty(q))
+                        {
+                            <a href="/Employees" class="btn btn-outline-secondary">
+                                <i class="bi bi-x-circle"></i>
+                            </a>
+                        }
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>CI</th>
+                            <th>Correo</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var e in Model)
+                        {
+                            <tr>
+                                <td>@e.EmpNo</td>
+                                <td>@e.FirstName @e.LastName</td>
+                                <td>@e.Ci</td>
+                                <td>@e.Correo</td>
+                                <td>
+                                    @if (e.Activo)
+                                    {
+                                        <span class="badge bg-success">Activo</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger">Inactivo</span>
+                                    }
+                                </td>
+                                <td>
+                                    <div class="d-flex justify-content-center align-items-center gap-2">
+                                        <a href="/Employees/Edit/@e.EmpNo" class="btn btn-sm btn-outline-primary" title="Editar" data-bs-toggle="tooltip">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        @if (e.Activo && (User.IsInRole("Administrador") || User.IsInRole("RRHH")))
+                                        {
+                                            <a href="/Employees/Deactivate/@e.EmpNo" 
+                                               class="btn btn-sm btn-outline-danger" title="Desactivar" data-bs-toggle="tooltip"
+                                               onclick="return confirm('¿Está seguro de desactivar este empleado?')">
+                                                <i class="bi bi-person-x"></i>
+                                            </a>
+                                        }
+                                        @if (!e.Activo && (User.IsInRole("Administrador") || User.IsInRole("RRHH")))
+                                        {
+                                            <a href="/Employees/Activate/@e.EmpNo" 
+                                               class="btn btn-sm btn-outline-success" title="Activar" data-bs-toggle="tooltip"
+                                               onclick="return confirm('¿Está seguro de activar este empleado?')">
+                                                <i class="bi bi-person-check"></i>
+                                            </a>
+                                        }
+                                        <a href="/Salaries/Create?empNo=@e.EmpNo" class="btn btn-sm btn-outline-success" title="Asignar/Modificar Salario" data-bs-toggle="tooltip">
+                                            <i class="bi bi-currency-dollar"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            @if (totalPages > 1)
+            {
+                <nav aria-label="Page navigation" class="mt-4">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item @(page == 1 ? "disabled" : "")">
+                            <a class="page-link" href="?page=@(page-1)&q=@q">Anterior</a>
+                        </li>
+                        @for (int i = 1; i <= totalPages; i++)
+                        {
+                            <li class="page-item @(i == page ? "active" : "")">
+                                <a class="page-link" href="?page=@i&q=@q">@i</a>
+                            </li>
+                        }
+                        <li class="page-item @(page == totalPages ? "disabled" : "")">
+                            <a class="page-link" href="?page=@(page+1)&q=@q">Siguiente</a>
+                        </li>
+                    </ul>
+                </nav>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+    // Activar tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+    </script>
+}

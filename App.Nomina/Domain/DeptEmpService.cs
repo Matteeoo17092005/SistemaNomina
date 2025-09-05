@@ -1,0 +1,27 @@
+﻿// /Domain/DeptEmpService.cs
+using App.Nomina.Data;
+using App.Nomina.Data.Entities;
+using Microsoft.EntityFrameworkCore;
+
+namespace App.Nomina.Domain;
+
+public class DeptEmpService : IDeptEmpService
+{
+    private readonly NominaDbContext _db;
+    public DeptEmpService(NominaDbContext db) => _db = db;
+
+    public async Task AssignAsync(int empNo, string deptNo, DateTime fromDate, DateTime? toDate)
+    {
+        if (toDate.HasValue && toDate < fromDate)
+            throw new ArgumentException("to_date no puede ser anterior a from_date.");
+
+        // No solapamientos para el empleado
+        bool solapa = await _db.DeptEmp
+            .Where(de => de.EmpNo == empNo)
+            .AnyAsync(de => DateRange.Overlaps(de.FromDate, de.ToDate, fromDate, toDate));
+        if (solapa) throw new InvalidOperationException("El empleado ya tiene asignación activa en esa vigencia.");
+
+        _db.DeptEmp.Add(new DeptEmp { EmpNo = empNo, DeptNo = deptNo, FromDate = fromDate, ToDate = toDate });
+        await _db.SaveChangesAsync();
+    }
+}

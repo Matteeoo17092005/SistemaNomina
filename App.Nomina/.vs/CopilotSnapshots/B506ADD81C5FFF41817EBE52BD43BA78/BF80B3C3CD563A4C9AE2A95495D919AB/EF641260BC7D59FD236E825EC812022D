@@ -1,0 +1,26 @@
+﻿// /Domain/Contracts.cs
+using App.Nomina.Data.Entities;
+
+namespace App.Nomina.Domain;
+
+public interface ISalaryService
+{
+    Task AddOrChangeSalaryAsync(int empNo, decimal amount, DateTime fromDate, string usuario);
+    Task<decimal?> GetSalaryOnAsync(int empNo, DateTime date);
+}
+
+public interface IDeptEmpService
+{
+    Task AssignAsync(int empNo, string deptNo, DateTime fromDate, DateTime? toDate);
+}
+
+public interface IDeptManagerService
+{
+    Task AssignManagerAsync(string deptNo, int empNo, DateTime fromDate, DateTime? toDate);
+}
+
+public interface IUserCrypto
+{
+    string Hash(string plain);
+    bool Verify(string plain, string hash);
+}

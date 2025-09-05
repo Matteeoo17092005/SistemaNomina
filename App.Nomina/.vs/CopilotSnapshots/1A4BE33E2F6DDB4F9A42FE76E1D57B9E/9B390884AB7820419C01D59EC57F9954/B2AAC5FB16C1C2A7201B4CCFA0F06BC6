@@ -1,0 +1,64 @@
+﻿@model IEnumerable<App.Nomina.Data.Entities.Title>
+@{
+    ViewData["Title"] = "Títulos";
+    string titulo = ViewBag.Titulo as string ?? "";
+    string empleado = ViewBag.Empleado as string ?? "";
+    DateTime? desde = ViewBag.Desde as DateTime?;
+    DateTime? hasta = ViewBag.Hasta as DateTime?;
+}
+<div class="container">
+    <h2 class="mb-4"><i class="bi bi-award"></i> Títulos</h2>
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="get" class="row g-3 align-items-end">
+                <div class="col-md-3">
+                    <label class="form-label">Título</label>
+                    <input type="text" name="titulo" class="form-control" value="@titulo" placeholder="Título..." />
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Empleado</label>
+                    <input type="text" name="empleado" class="form-control" value="@empleado" placeholder="Nombre o apellido..." />
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">Desde</label>
+                    <input type="date" name="desde" class="form-control" value="@(desde?.ToString("yyyy-MM-dd") ?? "")" />
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">Hasta</label>
+                    <input type="date" name="hasta" class="form-control" value="@(hasta?.ToString("yyyy-MM-dd") ?? "")" />
+                </div>
+                <div class="col-md-2 mt-2">
+                    <button type="submit" class="btn btn-primary me-2"><i class="bi bi-search"></i> Filtrar</button>
+                    <a asp-action="Index" class="btn btn-outline-secondary"><i class="bi bi-x-circle"></i> Limpiar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Empleado</th>
+                            <th>Título</th>
+                            <th>Desde</th>
+                            <th>Hasta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var t in Model)
+                        {
+                            <tr>
+                                <td>@t.Employee.FirstName @t.Employee.LastName (@t.EmpNo)</td>
+                                <td>@t.TitleName</td>
+                                <td>@t.FromDate:dd/MM/yyyy</td>
+                                <td>@(t.ToDate.HasValue ? t.ToDate.Value.ToString("dd/MM/yyyy") : "Vigente")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

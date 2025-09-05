@@ -1,0 +1,79 @@
+﻿@model IEnumerable<dynamic>
+@{
+    ViewData["Title"] = "Cambios Salariales";
+    DateTime? desde = ViewBag.Desde as DateTime?;
+    DateTime? hasta = ViewBag.Hasta as DateTime?;
+    string q = ViewBag.Q as string ?? "";
+    int? empNo = ViewBag.EmpNo as int?;
+    string deptNo = ViewBag.DeptNo as string ?? "";
+}
+<div class="container">
+    <h2 class="mb-4"><i class="bi bi-clock-history"></i> Cambios Salariales</h2>
+    <div class="mb-3 d-flex gap-2">
+        <a asp-action="CambiosSalarialesExcel" asp-route-desde="@desde" asp-route-hasta="@hasta" asp-route-q="@q" asp-route-empNo="@empNo" asp-route-deptNo="@deptNo" class="btn btn-outline-success">
+            <i class="bi bi-file-earmark-excel"></i> Exportar a Excel
+        </a>
+        <a asp-action="CambiosSalarialesPdf" asp-route-desde="@desde" asp-route-hasta="@hasta" asp-route-q="@q" asp-route-empNo="@empNo" asp-route-deptNo="@deptNo" class="btn btn-outline-danger">
+            <i class="bi bi-file-earmark-pdf"></i> Exportar a PDF
+        </a>
+    </div>
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="get" class="row g-3 align-items-end">
+                <div class="col-md-3">
+                    <label class="form-label">Desde</label>
+                    <input type="date" name="desde" class="form-control" value="@(desde?.ToString("yyyy-MM-dd") ?? "")" />
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Hasta</label>
+                    <input type="date" name="hasta" class="form-control" value="@(hasta?.ToString("yyyy-MM-dd") ?? "")" />
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Buscar</label>
+                    <input type="text" name="q" class="form-control" value="@q" placeholder="Empleado, usuario, detalle..." />
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Departamento</label>
+                    <input type="text" name="deptNo" class="form-control" value="@deptNo" placeholder="Código dept." />
+                </div>
+                <div class="col-md-12 mt-2">
+                    <button type="submit" class="btn btn-primary me-2"><i class="bi bi-search"></i> Filtrar</button>
+                    <a asp-action="CambiosSalariales" class="btn btn-outline-secondary"><i class="bi bi-x-circle"></i> Limpiar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Empleado</th>
+                            <th>Departamento</th>
+                            <th>Usuario</th>
+                            <th>Fecha</th>
+                            <th>Detalle</th>
+                            <th>Monto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <tr>
+                                <td>@x.Id</td>
+                                <td>@x.Nombre (@x.EmpNo)</td>
+                                <td>@x.Departamento</td>
+                                <td>@x.Usuario</td>
+                                <td>@x.FechaActualizacion:dd/MM/yyyy HH:mm</td>
+                                <td>@x.DetalleCambio</td>
+                                <td>@x.Salario.ToString("C")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

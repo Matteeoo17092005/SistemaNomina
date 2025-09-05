@@ -1,0 +1,29 @@
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+// /Data/Entities/Employee.cs
+namespace App.Nomina.Data.Entities;
+public class Employee
+{
+    [Column("emp_no")]
+    public int EmpNo { get; set; }                 // PK
+    [Column("ci")]
+    public string Ci { get; set; } = default!;     // único
+    [Column("birth_date")]
+    public DateTime BirthDate { get; set; }
+    [Column("first_name")]
+    public string FirstName { get; set; } = default!;
+    [Column("last_name")]
+    public string LastName { get; set; } = default!;
+    [Column("gender")]
+    public string Gender { get; set; } = default!; // M/F/O
+    [Column("hire_date")]
+    public DateTime HireDate { get; set; }
+    [Column("correo")]
+    public string Correo { get; set; } = default!; // único y válido
+    [Column("activo")]
+    public bool Activo { get; set; } = true;
+
+    public ICollection<DeptEmp> DeptEmps { get; set; } = new List<DeptEmp>();
+    public ICollection<Title> Titles { get; set; } = new List<Title>();
+    public ICollection<Salary> Salaries { get; set; } = new List<Salary>();
+}

@@ -1,0 +1,77 @@
+﻿// /Data/NominaDbContext.cs
+using App.Nomina.Data.Entities;
+using Microsoft.EntityFrameworkCore;
+
+namespace App.Nomina.Data;
+
+public class NominaDbContext : DbContext
+{
+    public NominaDbContext(DbContextOptions<NominaDbContext> options) : base(options) { }
+
+    public DbSet<Employee> Employees => Set<Employee>();
+    public DbSet<Department> Departments => Set<Department>();
+    public DbSet<DeptEmp> DeptEmp => Set<DeptEmp>();
+    public DbSet<DeptManager> DeptManagers => Set<DeptManager>();
+    public DbSet<Title> Titles => Set<Title>();
+    public DbSet<Salary> Salaries => Set<Salary>();
+    public DbSet<User> Users => Set<User>();
+    public DbSet<LogAuditoriaSalarios> LogAuditoriaSalarios => Set<LogAuditoriaSalarios>();
+
+    protected override void OnModelCreating(ModelBuilder mb)
+    {
+        mb.Entity<Employee>(e =>
+        {
+            e.HasKey(x => x.EmpNo);
+            e.HasIndex(x => x.Ci).IsUnique();
+            e.HasIndex(x => x.Correo).IsUnique();
+            e.Property(x => x.FirstName).HasMaxLength(50);
+            e.Property(x => x.LastName).HasMaxLength(50);
+        });
+
+        mb.Entity<Department>(d =>
+        {
+            d.HasKey(x => x.DeptNo);
+            d.HasIndex(x => x.DeptName).IsUnique();
+            d.Property(x => x.DeptNo).HasMaxLength(10);
+        });
+
+        mb.Entity<DeptEmp>(de =>
+        {
+            de.HasKey(x => new { x.EmpNo, x.DeptNo, x.FromDate }); // histórico
+            de.HasOne(x => x.Employee).WithMany(x => x.DeptEmp).HasForeignKey(x => x.EmpNo);
+            de.HasOne(x => x.Department).WithMany(x => x.DeptEmp).HasForeignKey(x => x.DeptNo);
+        });
+
+        mb.Entity<DeptManager>(dm =>
+        {
+            dm.HasKey(x => new { x.EmpNo, x.DeptNo, x.FromDate });
+            dm.HasOne(x => x.Employee).WithMany().HasForeignKey(x => x.EmpNo);
+            dm.HasOne(x => x.Department).WithMany(x => x.Managers).HasForeignKey(x => x.DeptNo);
+        });
+
+        mb.Entity<Title>(t =>
+        {
+            t.HasKey(x => new { x.EmpNo, x.TitleName, x.FromDate });
+            t.HasOne(x => x.Employee).WithMany(x => x.Titles).HasForeignKey(x => x.EmpNo);
+        });
+
+        mb.Entity<Salary>(s =>
+        {
+            s.HasKey(x => new { x.EmpNo, x.FromDate });
+            s.Property(x => x.Amount).HasColumnType("decimal(18,2)");
+            s.HasOne(x => x.Employee).WithMany(x => x.Salaries).HasForeignKey(x => x.EmpNo);
+        });
+
+        mb.Entity<User>(u =>
+        {
+            u.HasIndex(x => x.Username).IsUnique();
+            u.Property(x => x.Rol).HasMaxLength(20);
+        });
+
+        mb.Entity<LogAuditoriaSalarios>(l =>
+        {
+            l.HasKey(x => x.Id);
+            l.Property(x => x.Salario).HasColumnType("decimal(18,2)");
+        });
+    }
+}

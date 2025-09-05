@@ -1,0 +1,19 @@
+namespace App.Nomina.Domain;
+
+public static class DateRange
+{
+    /// <summary>
+    /// Determina si dos rangos de fechas se solapan.
+    /// </summary>
+    /// <param name="start1">Fecha de inicio del primer rango</param>
+    /// <param name="end1">Fecha de fin del primer rango (puede ser null = abierto)</param>
+    /// <param name="start2">Fecha de inicio del segundo rango</param>
+    /// <param name="end2">Fecha de fin del segundo rango (puede ser null = abierto)</param>
+    /// <returns>True si los rangos se solapan</returns>
+    public static bool Overlaps(DateTime start1, DateTime? end1, DateTime start2, DateTime? end2)
+    {
+        var realEnd1 = end1 ?? DateTime.MaxValue;
+        var realEnd2 = end2 ?? DateTime.MaxValue;
+        return start1 <= realEnd2 && start2 <= realEnd1;
+    }
+}

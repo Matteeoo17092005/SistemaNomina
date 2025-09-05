@@ -1,0 +1,50 @@
+﻿@model IEnumerable<App.Nomina.Data.Entities.Salary>
+@{
+    var empleado = ViewBag.Empleado as App.Nomina.Data.Entities.Employee;
+    ViewData["Title"] = "Historial de Salarios";
+}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card shadow-sm fade-in">
+            <div class="card-body">
+                <h2 class="mb-4"><i class="bi bi-currency-dollar"></i> Historial de Salarios</h2>
+                <div class="mb-3">
+                    <strong>Empleado:</strong> @empleado?.FirstName @empleado?.LastName (@empleado?.EmpNo)
+                </div>
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Monto</th>
+                            <th>Desde</th>
+                            <th>Hasta</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var s in Model)
+                        {
+                            <tr>
+                                <td>@s.Amount.ToString("C")</td>
+                                <td>@s.FromDate:dd/MM/yyyy</td>
+                                <td>@(s.ToDate.HasValue ? s.ToDate.Value.ToString("dd/MM/yyyy") : "Vigente")</td>
+                                <td>
+                                    <a asp-controller="Salaries" asp-action="Edit" asp-route-empNo="@s.EmpNo" asp-route-fromDate="@s.FromDate.ToString("yyyy-MM-dd")" class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-pencil"></i> Editar
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="d-flex justify-content-end mt-4">
+                    <a asp-action="Details" asp-route-id="@empleado?.EmpNo" class="btn btn-outline-secondary me-2">
+                        <i class="bi bi-arrow-left"></i> Volver
+                    </a>
+                    <a asp-controller="Salaries" asp-action="Create" asp-route-empNo="@empleado?.EmpNo" class="btn btn-success">
+                        <i class="bi bi-currency-dollar"></i> Asignar/Modificar Salario
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

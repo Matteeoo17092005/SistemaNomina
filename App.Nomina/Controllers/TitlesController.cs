@@ -1,0 +1,102 @@
+using App.Nomina.Data;
+using App.Nomina.Data.Entities;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
+namespace App.Nomina.Controllers;
+
+[Authorize]
+public class TitlesController : Controller
+{
+    private readonly NominaDbContext _db;
+    public TitlesController(NominaDbContext db) => _db = db;
+
+    public async Task<IActionResult> Index(string? titulo, string? empleado, DateTime? desde, DateTime? hasta)
+    {
+        var query = _db.Titles.Include(t => t.Employee).AsQueryable();
+        if (!string.IsNullOrWhiteSpace(titulo))
+            query = query.Where(t => t.TitleName.Contains(titulo));
+        if (!string.IsNullOrWhiteSpace(empleado))
+            query = query.Where(t => t.Employee.FirstName.Contains(empleado) || t.Employee.LastName.Contains(empleado));
+        if (desde.HasValue)
+            query = query.Where(t => t.FromDate >= desde.Value);
+        if (hasta.HasValue)
+            query = query.Where(t => t.ToDate == null || t.ToDate <= hasta.Value);
+        var titulos = await query.OrderByDescending(t => t.FromDate).ToListAsync();
+        ViewBag.Titulo = titulo;
+        ViewBag.Empleado = empleado;
+        ViewBag.Desde = desde;
+        ViewBag.Hasta = hasta;
+        return View(titulos);
+    }
+
+    public async Task<IActionResult> Create(int empNo)
+    {
+        var empleado = await _db.Employees.FindAsync(empNo);
+        if (empleado == null) return NotFound();
+        ViewBag.Empleado = empleado;
+        return View(new Title { EmpNo = empNo });
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(Title model)
+    {
+        var empleado = await _db.Employees.FindAsync(model.EmpNo);
+        if (empleado == null) return NotFound();
+        ViewBag.Empleado = empleado;
+        if (!ModelState.IsValid) return View(model);
+        // Validar solapamiento
+        bool solapa = await _db.Titles
+            .Where(t => t.EmpNo == model.EmpNo && t.TitleName == model.TitleName)
+            .AnyAsync(t => (t.ToDate ?? DateTime.MaxValue) >= model.FromDate && (model.ToDate ?? DateTime.MaxValue) >= t.FromDate);
+        if (solapa)
+        {
+            ModelState.AddModelError("", "Ya existe un título con vigencia solapada para este empleado.");
+            return View(model);
+        }
+        _db.Titles.Add(model);
+        await _db.SaveChangesAsync();
+        return RedirectToAction("Details", "Employees", new { id = model.EmpNo });
+    }
+
+    public async Task<IActionResult> Edit(int empNo, string title, DateTime fromDate)
+    {
+        var t = await _db.Titles.FindAsync(empNo, title, fromDate);
+        if (t == null) return NotFound();
+        var empleado = await _db.Employees.FindAsync(empNo);
+        ViewBag.Empleado = empleado;
+        return View(t);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Edit(Title model)
+    {
+        var empleado = await _db.Employees.FindAsync(model.EmpNo);
+        if (empleado == null) return NotFound();
+        ViewBag.Empleado = empleado;
+        if (!ModelState.IsValid) return View(model);
+        // Validar solapamiento (excluyendo el actual)
+        bool solapa = await _db.Titles
+            .Where(t => t.EmpNo == model.EmpNo && t.TitleName == model.TitleName && t.FromDate != model.FromDate)
+            .AnyAsync(t => (t.ToDate ?? DateTime.MaxValue) >= model.FromDate && (model.ToDate ?? DateTime.MaxValue) >= t.FromDate);
+        if (solapa)
+        {
+            ModelState.AddModelError("", "Ya existe un título con vigencia solapada para este empleado.");
+            return View(model);
+        }
+        _db.Titles.Update(model);
+        await _db.SaveChangesAsync();
+        return RedirectToAction("Details", "Employees", new { id = model.EmpNo });
+    }
+
+    [Authorize(Roles = "Administrador,RRHH")]
+    public async Task<IActionResult> Delete(int empNo, string title, DateTime fromDate)
+    {
+        var t = await _db.Titles.FindAsync(empNo, title, fromDate);
+        if (t == null) return NotFound();
+        _db.Titles.Remove(t);
+        await _db.SaveChangesAsync();
+        return RedirectToAction("Details", "Employees", new { id = empNo });
+    }
+}

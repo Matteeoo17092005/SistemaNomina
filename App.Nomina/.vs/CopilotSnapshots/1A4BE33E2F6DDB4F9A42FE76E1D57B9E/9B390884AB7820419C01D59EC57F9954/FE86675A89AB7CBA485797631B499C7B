@@ -1,0 +1,87 @@
+﻿using App.Nomina.Data;
+using App.Nomina.Data.Entities;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
+namespace App.Nomina.Controllers;
+
+[Authorize]
+public class DepartamentosController : Controller
+{
+    private readonly NominaDbContext _db;
+    public DepartamentosController(NominaDbContext db) => _db = db;
+
+    public async Task<IActionResult> Index(string? q)
+    {
+        var query = _db.Departments.AsQueryable();
+        if (!string.IsNullOrWhiteSpace(q))
+            query = query.Where(d => d.DeptNo.Contains(q) || d.DeptName.Contains(q));
+        var departamentos = await query.OrderBy(d => d.DeptNo).ToListAsync();
+        ViewBag.Q = q;
+        return View(departamentos);
+    }
+
+    public async Task<IActionResult> Details(string id)
+    {
+        var departamento = await _db.Departments.FindAsync(id);
+        if (departamento == null) return NotFound();
+        return View(departamento);
+    }
+
+    [Authorize(Roles = "Administrador,RRHH")]
+    public IActionResult Create() => View(new Department());
+
+    [HttpPost]
+    [Authorize(Roles = "Administrador,RRHH")]
+    public async Task<IActionResult> Create(Department model)
+    {
+        if (!ModelState.IsValid) return View(model);
+        if (await _db.Departments.AnyAsync(d => d.DeptNo == model.DeptNo))
+        {
+            ModelState.AddModelError("DeptNo", "Ya existe un departamento con este código");
+            return View(model);
+        }
+        _db.Departments.Add(model);
+        await _db.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
+    }
+
+    [Authorize(Roles = "Administrador,RRHH")]
+    public async Task<IActionResult> Edit(string id)
+    {
+        var departamento = await _db.Departments.FindAsync(id);
+        if (departamento == null) return NotFound();
+        return View(departamento);
+    }
+
+    [HttpPost]
+    [Authorize(Roles = "Administrador,RRHH")]
+    public async Task<IActionResult> Edit(Department model)
+    {
+        if (!ModelState.IsValid) return View(model);
+        _db.Departments.Update(model);
+        await _db.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
+    }
+
+    [Authorize(Roles = "Administrador,RRHH")]
+    public async Task<IActionResult> Deactivate(string id)
+    {
+        var departamento = await _db.Departments.FindAsync(id);
+        if (departamento == null) return NotFound();
+        departamento.Activo = false;
+        await _db.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
+    }
+
+    [Authorize(Roles = "Administrador,RRHH")]
+    public async Task<IActionResult> Activate(string id)
+    {
+        var departamento = await _db.Departments.FindAsync(id);
+        if (departamento == null) return NotFound();
+        departamento.Activo = true;
+        await _db.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
+    }
+}

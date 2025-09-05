@@ -1,0 +1,16 @@
+﻿// /Data/Entities/Department.cs
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace App.Nomina.Data.Entities;
+public class Department
+{
+    [Column("dept_no")]
+    public string DeptNo { get; set; } = default!; // PK tipo "d001"
+    [Column("dept_name")]
+    public string DeptName { get; set; } = default!;
+    [Column("activo")]
+    public bool Activo { get; set; } = true;
+
+    public ICollection<DeptEmp> DeptEmps { get; set; } = new List<DeptEmp>();
+    public ICollection<DeptManager> Managers { get; set; } = new List<DeptManager>();
+}

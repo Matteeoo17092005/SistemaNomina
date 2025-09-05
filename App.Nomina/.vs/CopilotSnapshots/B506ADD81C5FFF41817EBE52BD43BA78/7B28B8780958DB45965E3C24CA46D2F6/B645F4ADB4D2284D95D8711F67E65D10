@@ -1,0 +1,18 @@
+﻿// /Data/Entities/Employee.cs
+namespace App.Nomina.Data.Entities;
+public class Employee
+{
+    public int EmpNo { get; set; }                 // PK
+    public string Ci { get; set; } = default!;     // único
+    public DateTime BirthDate { get; set; }
+    public string FirstName { get; set; } = default!;
+    public string LastName { get; set; } = default!;
+    public string Gender { get; set; } = default!; // M/F/O
+    public DateTime HireDate { get; set; }
+    public string Correo { get; set; } = default!; // único y válido
+    public bool Activo { get; set; } = true;
+
+    public ICollection<DeptEmp> DeptEmps { get; set; } = new List<DeptEmp>();
+    public ICollection<Title> Titles { get; set; } = new List<Title>();
+    public ICollection<Salary> Salaries { get; set; } = new List<Salary>();
+}

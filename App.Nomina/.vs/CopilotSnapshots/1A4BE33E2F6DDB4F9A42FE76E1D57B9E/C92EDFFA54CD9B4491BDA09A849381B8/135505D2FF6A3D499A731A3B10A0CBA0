@@ -1,0 +1,44 @@
+﻿@model IEnumerable<dynamic>
+@{
+    ViewData["Title"] = "Nómina Vigente por Departamento";
+    var deptNo = Context.Request.Query["deptNo"].ToString();
+    var fecha = Context.Request.Query["fecha"].ToString();
+}
+<div class="container">
+    <h2 class="mb-4"><i class="bi bi-building"></i> Nómina Vigente por Departamento</h2>
+    <div class="mb-3 d-flex gap-2">
+        <a asp-action="NominaVigenteExcel" asp-route-deptNo="@deptNo" asp-route-fecha="@fecha" class="btn btn-outline-success">
+            <i class="bi bi-file-earmark-excel"></i> Exportar a Excel
+        </a>
+        <a asp-action="NominaVigentePdf" asp-route-deptNo="@deptNo" asp-route-fecha="@fecha" class="btn btn-outline-danger">
+            <i class="bi bi-file-earmark-pdf"></i> Exportar a PDF
+        </a>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Departamento</th>
+                            <th>Salario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <tr>
+                                <td>@x.EmpNo</td>
+                                <td>@x.Nombre</td>
+                                <td>@x.DeptName</td>
+                                <td>@x.Salario.ToString("C")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

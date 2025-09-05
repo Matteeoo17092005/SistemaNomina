@@ -1,0 +1,11 @@
+﻿// /Data/Entities/Department.cs
+namespace App.Nomina.Data.Entities;
+public class Department
+{
+    public string DeptNo { get; set; } = default!; // PK tipo "d001"
+    public string DeptName { get; set; } = default!;
+    public bool Activo { get; set; } = true;
+
+    public ICollection<DeptEmp> DeptEmps { get; set; } = new List<DeptEmp>();
+    public ICollection<DeptManager> Managers { get; set; } = new List<DeptManager>();
+}

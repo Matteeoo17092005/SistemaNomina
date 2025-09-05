@@ -1,0 +1,12 @@
+﻿// /Data/Entities/DeptManager.cs
+namespace App.Nomina.Data.Entities;
+public class DeptManager
+{
+    public int EmpNo { get; set; }
+    public string DeptNo { get; set; } = default!;
+    public DateTime FromDate { get; set; }
+    public DateTime? ToDate { get; set; }
+
+    public Employee Employee { get; set; } = default!;
+    public Department Department { get; set; } = default!;
+}

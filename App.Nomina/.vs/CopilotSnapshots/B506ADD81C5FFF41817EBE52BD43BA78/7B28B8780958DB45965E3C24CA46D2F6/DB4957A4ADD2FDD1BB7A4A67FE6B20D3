@@ -1,0 +1,32 @@
+﻿@model IEnumerable<App.Nomina.Data.Entities.Employee>
+@{
+    ViewData["Title"] = "Empleados";
+    int total = (int)ViewBag.Total;
+    int page = (int)ViewBag.Page;
+    int pageSize = (int)ViewBag.PageSize;
+    string q = (string)ViewBag.Q ?? "";
+}
+<h2>Empleados</h2>
+<form method="get">
+  <input name="q" value="@q" placeholder="Nombre/CI/Correo"/>
+  <button>Buscar</button>
+</form>
+<p><a href="/Employees/Create">+ Nuevo</a></p>
+<table>
+  <thead><tr><th>#</th><th>Nombre</th><th>CI</th><th>Correo</th><th>Activo</th><th></th></tr></thead>
+  <tbody>
+  @foreach (var e in Model) {
+    <tr>
+      <td>@e.EmpNo</td>
+      <td>@e.FirstName @e.LastName</td>
+      <td>@e.Ci</td>
+      <td>@e.Correo</td>
+      <td>@e.Activo</td>
+      <td>
+        <a href="/Employees/Edit/@e.EmpNo">Editar</a> |
+        <a href="/Employees/Deactivate/@e.EmpNo">Desactivar</a>
+      </td>
+    </tr>
+  }
+  </tbody>
+</table>

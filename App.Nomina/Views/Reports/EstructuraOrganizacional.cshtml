@@ -1,0 +1,65 @@
+@model IEnumerable<dynamic>
+@{
+    ViewData["Title"] = "Estructura Organizacional";
+    string deptNo = ViewBag.DeptNo as string ?? "";
+    string q = ViewBag.Q as string ?? "";
+}
+<div class="container">
+    <h2 class="mb-4"><i class="bi bi-diagram-3"></i> Estructura Organizacional</h2>
+    <div class="mb-3 d-flex gap-2">
+        <a asp-action="EstructuraOrganizacionalExcel" asp-route-deptNo="@deptNo" asp-route-q="@q" class="btn btn-outline-success">
+            <i class="bi bi-file-earmark-excel"></i> Exportar a Excel
+        </a>
+        <a asp-action="EstructuraOrganizacionalPdf" asp-route-deptNo="@deptNo" asp-route-q="@q" class="btn btn-outline-danger">
+            <i class="bi bi-file-earmark-pdf"></i> Exportar a PDF
+        </a>
+    </div>
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="get" class="row g-3 align-items-end">
+                <div class="col-md-4">
+                    <label class="form-label">Departamento</label>
+                    <input type="text" name="deptNo" class="form-control" value="@deptNo" placeholder="Código dept." />
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Buscar</label>
+                    <input type="text" name="q" class="form-control" value="@q" placeholder="Nombre gerente o empleado..." />
+                </div>
+                <div class="col-md-4 mt-2">
+                    <button type="submit" class="btn btn-primary me-2"><i class="bi bi-search"></i> Filtrar</button>
+                    <a asp-action="EstructuraOrganizacional" class="btn btn-outline-secondary"><i class="bi bi-x-circle"></i> Limpiar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Departamento</th>
+                            <th>Gerente</th>
+                            <th>Empleados</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <tr>
+                                <td>@x.DeptName (@x.DeptNo)</td>
+                                <td>@x.Manager (@x.ManagerNo)</td>
+                                <td>
+                                    @foreach (var e in x.Empleados)
+                                    {
+                                        <span class="badge bg-secondary me-1">@e.Nombre (@e.EmpNo)</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

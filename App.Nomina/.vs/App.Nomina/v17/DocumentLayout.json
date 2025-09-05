@@ -1,0 +1,837 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\domain\\bcryptcrypto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:domain\\bcryptcrypto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\controllers\\reportscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:controllers\\reportscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\reports\\estructuraorganizacional.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\reports\\estructuraorganizacional.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\reports\\gerentesdepartamento.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\reports\\gerentesdepartamento.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\titles\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\titles\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\domain\\deptempservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:domain\\deptempservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\reports\\cambiossalariales.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\reports\\cambiossalariales.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\domain\\deptmanagerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:domain\\deptmanagerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\reports\\nominavigente.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\reports\\nominavigente.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\employees\\salaries.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\employees\\salaries.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\departamentos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\departamentos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\controllers\\departamentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:controllers\\departamentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\data\\nominadbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:data\\nominadbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\departamentos\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\departamentos\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\departamentos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\departamentos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\migrations\\nominadbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:migrations\\nominadbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\employees\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\employees\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\employees\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\employees\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\domain\\nuevo documento de texto.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:domain\\nuevo documento de texto.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\domain\\salaryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:domain\\salaryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\domain\\isalaryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:domain\\isalaryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\domain\\daterange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:domain\\daterange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\domain\\contracts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:domain\\contracts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\data\\entities\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:data\\entities\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\controllers\\titlescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:controllers\\titlescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\controllers\\salariescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:controllers\\salariescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fran\\AppData\\Local\\SourceServer\\4bb1e84daf84165de8b6bd27b85b92f4e9029a0cd2be16b54a662929c7900636\\src\\MySqlConnector\\Core\\ServerSession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\data\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:data\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\data\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:data\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\app.nomina.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:app.nomina.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\data\\entities\\logauditoriasalarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:data\\entities\\logauditoriasalarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\employees\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\employees\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\employees\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\employees\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\views\\departamentos\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:views\\departamentos\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|e:\\reutilizacionproyectofinal\\nomina\\app.nomina\\data\\entities\\deptemp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E96E649A-EAD4-D439-B10D-D7407BC07A72}|App.Nomina.csproj|solutionrelative:data\\entities\\deptemp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T23:43:22.645Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T17:54:27.258Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABQAAAAAAAAAAAAowCQAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-04T00:09:23.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EstructuraOrganizacional.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Reports\\EstructuraOrganizacional.cshtml",
+              "RelativeDocumentMoniker": "Views\\Reports\\EstructuraOrganizacional.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Reports\\EstructuraOrganizacional.cshtml",
+              "RelativeToolTip": "Views\\Reports\\EstructuraOrganizacional.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T11:41:46.864Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BcryptCrypto.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Domain\\BcryptCrypto.cs",
+              "RelativeDocumentMoniker": "Domain\\BcryptCrypto.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Domain\\BcryptCrypto.cs",
+              "RelativeToolTip": "Domain\\BcryptCrypto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T17:24:06.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ReportsController.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Controllers\\ReportsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ReportsController.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Controllers\\ReportsController.cs",
+              "RelativeToolTip": "Controllers\\ReportsController.cs",
+              "ViewState": "AgIAALUAAAAAAAAAAAAAALUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T21:03:37.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GerentesDepartamento.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Reports\\GerentesDepartamento.cshtml",
+              "RelativeDocumentMoniker": "Views\\Reports\\GerentesDepartamento.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Reports\\GerentesDepartamento.cshtml",
+              "RelativeToolTip": "Views\\Reports\\GerentesDepartamento.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T11:45:04.583Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T17:53:05.37Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Titles\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Titles\\Index.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Titles\\Index.cshtml",
+              "RelativeToolTip": "Views\\Titles\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T11:43:16.754Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Privacy.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T18:12:25.666Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABkAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-04T00:21:15.988Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "DeptManagerService.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Domain\\DeptManagerService.cs",
+              "RelativeDocumentMoniker": "Domain\\DeptManagerService.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Domain\\DeptManagerService.cs",
+              "RelativeToolTip": "Domain\\DeptManagerService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T17:49:06.096Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DeptEmpService.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Domain\\DeptEmpService.cs",
+              "RelativeDocumentMoniker": "Domain\\DeptEmpService.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Domain\\DeptEmpService.cs",
+              "RelativeToolTip": "Domain\\DeptEmpService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T11:17:37.102Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CambiosSalariales.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Reports\\CambiosSalariales.cshtml",
+              "RelativeDocumentMoniker": "Views\\Reports\\CambiosSalariales.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Reports\\CambiosSalariales.cshtml",
+              "RelativeToolTip": "Views\\Reports\\CambiosSalariales.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T11:10:57.217Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T17:22:25.175Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "NominaVigente.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Reports\\NominaVigente.cshtml",
+              "RelativeDocumentMoniker": "Views\\Reports\\NominaVigente.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Reports\\NominaVigente.cshtml",
+              "RelativeToolTip": "Views\\Reports\\NominaVigente.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T20:55:34.814Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Salaries.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Employees\\Salaries.cshtml",
+              "RelativeDocumentMoniker": "Views\\Employees\\Salaries.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Employees\\Salaries.cshtml",
+              "RelativeToolTip": "Views\\Employees\\Salaries.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-04T01:41:36.089Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "site.css",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-09-04T00:10:08.066Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Departamentos\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Departamentos\\Index.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Departamentos\\Index.cshtml",
+              "RelativeToolTip": "Views\\Departamentos\\Index.cshtml",
+              "ViewState": "AgIAACwAAAAAAAAAAAAowD0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T04:28:52.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "DepartamentosController.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Controllers\\DepartamentosController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DepartamentosController.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Controllers\\DepartamentosController.cs",
+              "RelativeToolTip": "Controllers\\DepartamentosController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T04:25:14.237Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAABAAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T22:41:49.543Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T18:02:53.085Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Auth\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Auth\\Login.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Auth\\Login.cshtml",
+              "RelativeToolTip": "Views\\Auth\\Login.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAADwAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-04T00:10:31.299Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "NominaDbContext.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Data\\NominaDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\NominaDbContext.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Data\\NominaDbContext.cs",
+              "RelativeToolTip": "Data\\NominaDbContext.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T11:16:25.563Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "site.js",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\site.js",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "wwwroot\\js\\site.js",
+              "ViewState": "AgIAADIAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-09-04T00:11:41.315Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Departamentos\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Departamentos\\Details.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Departamentos\\Details.cshtml",
+              "RelativeToolTip": "Views\\Departamentos\\Details.cshtml",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T04:29:36.319Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Departamentos\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Departamentos\\Create.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Departamentos\\Create.cshtml",
+              "RelativeToolTip": "Views\\Departamentos\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T04:29:06.286Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "NominaDbContextModelSnapshot.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Migrations\\NominaDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Migrations\\NominaDbContextModelSnapshot.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Migrations\\NominaDbContextModelSnapshot.cs",
+              "RelativeToolTip": "Migrations\\NominaDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T18:19:32.326Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Employees\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Employees\\Index.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Employees\\Index.cshtml",
+              "RelativeToolTip": "Views\\Employees\\Index.cshtml",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAswBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T03:57:22.472Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Employees\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Employees\\Create.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Employees\\Create.cshtml",
+              "RelativeToolTip": "Views\\Employees\\Create.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAE4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-04T00:55:46.335Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Shared\\Error.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\Error.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Shared\\Error.cshtml",
+              "RelativeToolTip": "Views\\Shared\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T18:02:51.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "ISalaryService.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Domain\\ISalaryService.cs",
+              "RelativeDocumentMoniker": "Domain\\ISalaryService.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Domain\\ISalaryService.cs",
+              "RelativeToolTip": "Domain\\ISalaryService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T17:49:09.798Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Nuevo Documento de texto.txt",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Domain\\Nuevo Documento de texto.txt",
+              "RelativeDocumentMoniker": "Domain\\Nuevo Documento de texto.txt",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Domain\\Nuevo Documento de texto.txt",
+              "RelativeToolTip": "Domain\\Nuevo Documento de texto.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-09-05T17:52:47.598Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Department.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Data\\Entities\\Department.cs",
+              "RelativeDocumentMoniker": "Data\\Entities\\Department.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Data\\Entities\\Department.cs",
+              "RelativeToolTip": "Data\\Entities\\Department.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T22:52:36.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Contracts.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Domain\\Contracts.cs",
+              "RelativeDocumentMoniker": "Domain\\Contracts.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Domain\\Contracts.cs",
+              "RelativeToolTip": "Domain\\Contracts.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T01:52:04.559Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "SalaryService.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Domain\\SalaryService.cs",
+              "RelativeDocumentMoniker": "Domain\\SalaryService.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Domain\\SalaryService.cs",
+              "RelativeToolTip": "Domain\\SalaryService.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T01:11:31.518Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "DateRange.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Domain\\DateRange.cs",
+              "RelativeDocumentMoniker": "Domain\\DateRange.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Domain\\DateRange.cs",
+              "RelativeToolTip": "Domain\\DateRange.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T02:11:15.695Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "TitlesController.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Controllers\\TitlesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TitlesController.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Controllers\\TitlesController.cs",
+              "RelativeToolTip": "Controllers\\TitlesController.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAswGYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T04:34:23.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "SalariesController.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Controllers\\SalariesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SalariesController.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Controllers\\SalariesController.cs",
+              "RelativeToolTip": "Controllers\\SalariesController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T01:51:01.743Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-04T00:14:11.79Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "EmployeesController.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Controllers\\EmployeesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EmployeesController.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Controllers\\EmployeesController.cs",
+              "RelativeToolTip": "Controllers\\EmployeesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T01:36:44.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "ServerSession.cs",
+              "DocumentMoniker": "C:\\Users\\Fran\\AppData\\Local\\SourceServer\\4bb1e84daf84165de8b6bd27b85b92f4e9029a0cd2be16b54a662929c7900636\\src\\MySqlConnector\\Core\\ServerSession.cs",
+              "ToolTip": "C:\\Users\\Fran\\AppData\\Local\\SourceServer\\4bb1e84daf84165de8b6bd27b85b92f4e9029a0cd2be16b54a662929c7900636\\src\\MySqlConnector\\Core\\ServerSession.cs",
+              "ViewState": "AgIAAO0EAAAAAAAAAAAiwBQFAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T16:50:43.732Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "DeptEmp.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Data\\Entities\\DeptEmp.cs",
+              "RelativeDocumentMoniker": "Data\\Entities\\DeptEmp.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Data\\Entities\\DeptEmp.cs",
+              "RelativeToolTip": "Data\\Entities\\DeptEmp.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAMBcwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T11:16:12.895Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Departamentos\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Departamentos\\Edit.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Departamentos\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Departamentos\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T04:29:19.532Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "LogAuditoriaSalarios.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Data\\Entities\\LogAuditoriaSalarios.cs",
+              "RelativeDocumentMoniker": "Data\\Entities\\LogAuditoriaSalarios.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Data\\Entities\\LogAuditoriaSalarios.cs",
+              "RelativeToolTip": "Data\\Entities\\LogAuditoriaSalarios.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAIBQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T01:28:51.94Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Employees\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Employees\\Edit.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Employees\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Employees\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T03:44:00.519Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Employees\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Employees\\Details.cshtml",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Views\\Employees\\Details.cshtml",
+              "RelativeToolTip": "Views\\Employees\\Details.cshtml",
+              "ViewState": "AgIAAEcAAAAAAAAAAIBJwEkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-04T01:31:38.054Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "User.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Data\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "Data\\Entities\\User.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Data\\Entities\\User.cs",
+              "RelativeToolTip": "Data\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T22:58:07.239Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Data\\Entities\\Employee.cs",
+              "RelativeDocumentMoniker": "Data\\Entities\\Employee.cs",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\Data\\Entities\\Employee.cs",
+              "RelativeToolTip": "Data\\Entities\\Employee.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAIBYwDIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T22:52:35.37Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "App.Nomina.csproj",
+              "DocumentMoniker": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\App.Nomina.csproj",
+              "RelativeDocumentMoniker": "App.Nomina.csproj",
+              "ToolTip": "E:\\ReutilizacionProyectoFinal\\nomina\\App.Nomina\\App.Nomina.csproj",
+              "RelativeToolTip": "App.Nomina.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-03T22:44:00.925Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
